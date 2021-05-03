@@ -16,9 +16,8 @@ const Icons = (IconModule as unknown) as { [key: string]: React.FC<SvgProps> };
 
 const Container = styled.div`
   display: flex;
-  flex-direction: column;
-  overflow-y: auto;
-  overflow-x: hidden;
+
+
   height: 100%;
 `;
 
@@ -55,14 +54,14 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
             </Accordion>
           );
         }
-        return (
-          <MenuEntry key={entry.label} isActive={entry.href === location.pathname} className={calloutClass}>
-            <MenuLink href={entry.href} onClick={handleClick}>
-              {iconElement}
-              <LinkLabel isPushed={isPushed}>{entry.label}</LinkLabel>
-            </MenuLink>
-          </MenuEntry>
-        );
+        // return (
+        //   <MenuEntry key={entry.label} isActive={entry.href === location.pathname} className={calloutClass}>
+        //     <MenuLink href={entry.href} onClick={handleClick}>
+        //       {iconElement}
+        //       <LinkLabel isPushed={isPushed}>{entry.label}</LinkLabel>
+        //     </MenuLink>
+        //   </MenuEntry>
+        // );
       })}
     </Container>
   );
