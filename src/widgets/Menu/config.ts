@@ -1,18 +1,8 @@
 export const links = [
-  // {
-  //   label: "Home",
-  //   icon: "HomeIcon",
-  //   href: "/",
-  // },
   {
     label: "Swap",
     icon: "FarmIcon",
     href: "https://dex.defi.finance/",
-  },
-  {
-    label: "Pools",
-    icon: "PoolIcon",
-    href: "/syrup",
   },
   {
     label: "Farms",
@@ -20,9 +10,9 @@ export const links = [
     href: "/farms",
   },
   {
-    label: "Staking",
+    label: "Stake",
     icon: "FarmIcon",
-    href: "https://dex.defi.finance/#/pool",
+    href: "/stake",
   },
 
   // {
