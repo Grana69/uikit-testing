@@ -5,12 +5,10 @@ import Overlay from "../../components/Overlay/Overlay";
 import { Flex } from "../../components/Flex";
 import { useMatchBreakpoints } from "../../hooks";
 import Logo from "./Logo";
-import { PancakeRoundIcon, SvgProps } from "../../components/Svg";
-import Skeleton from "../../components/Skeleton/Skeleton";
-import Panel from "./Panel";
+import {  SvgProps } from "../../components/Svg";
 import UserBlock from "./UserBlock";
 import { NavProps } from "./types";
-import { MENU_HEIGHT, SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "./config";
+import { MENU_HEIGHT } from "./config";
 import Avatar from "./Avatar";
 import PanelBody from "./PanelBody";
 import Button from "../../components/Button/Button";
@@ -18,8 +16,7 @@ import * as IconModule from "./icons";
 import Text from "../../components/Text/Text";
 import Dropdown from "../../components/Dropdown/Dropdown";
 import MenuButton from "./MenuButton";
-import Link from "../../components/Link/Link";
-import { socials, MENU_ENTRY_HEIGHT } from "./config";
+
 const Wrapper = styled.div`
   position: relative;
   width: 100%;
