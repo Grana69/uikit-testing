@@ -13,8 +13,8 @@ const UserBlock: React.FC<Props> = ({ account, login, logout }) => {
   const { onPresentConnectModal, onPresentAccountModal } = useWalletModal(login, logout, account);
   const accountEllipsis = account ? `${account.substring(0, 4)}...${account.substring(account.length - 4)}` : null;
   return (
-    <div>
-      {account ? (
+
+      account ? (
         <Button
           size="sm"
           variant="tertiary"
@@ -33,8 +33,8 @@ const UserBlock: React.FC<Props> = ({ account, login, logout }) => {
         >
           Connect
         </Button>
-      )}
-    </div>
+      )
+
   );
 };
 

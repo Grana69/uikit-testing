@@ -132,9 +132,10 @@ const Menu: React.FC<NavProps> = ({
             links={links}
             priceLink={priceLink}
          />
-          <UserBlock account={account} login={login} logout={logout} />
-          {profile && <Avatar profile={profile} />}
+
         </Flex>
+        <UserBlock account={account} login={login} logout={logout} />
+          {profile && <Avatar profile={profile} />}
       </StyledNav>
       <BodyWrapper>
         {/* <Panel
