@@ -1551,8 +1551,8 @@ var mediaQueries = {
 };
 var shadows = {
     level1: "0px 2px 12px -8px rgba(25, 19, 38, 0.1), 0px 1px 1px rgba(25, 19, 38, 0.05)",
-    active: "0px 0px 0px 1px #0098A1, 0px 0px 4px 8px rgba(31, 199, 212, 0.4)",
-    success: "0px 0px 0px 1px #31D0AA, 0px 0px 0px 4px rgba(49, 208, 170, 0.2)",
+    active: "0px 0px 0px 1px #218CFF, 0px 0px 4px 8px #218cff9e",
+    success: "0px 0px 0px 1px #31D0AA, 0px 0px 4px 4px #31D0AA",
     warning: "0px 0px 0px 1px #ED4B9E, 0px 0px 0px 4px rgba(237, 75, 158, 0.2)",
     focus: "0px 0px 0px 1px #218CFF, 0px 0px 0px 4px #218cff9e",
     inset: "inset 0px 2px 2px -1px rgba(74, 74, 104, 0.1)",
@@ -1888,7 +1888,8 @@ var Icon$P = function (props) {
 var Logo = function (_a) {
     var isDark = _a.isDark, props = __rest(_a, ["isDark"]);
     return (React__default['default'].createElement(Svg, __assign({ viewBox: "0 0 205 26" }, props),
-        React__default['default'].createElement("image", { width: "205", height: "26", href: isDark ? '/images/egg/LogoTextNewDark.png' : '/images/egg/LogoTextNewWhite.png' })));
+        React__default['default'].createElement("a", { href: "" },
+            React__default['default'].createElement("image", { width: "205", height: "26", href: isDark ? 'https://welcome.woonkly.com/images/defi/logo-dark.svg' : 'https://welcome.woonkly.com/images/defi/logo-light.svg' }))));
 };
 
 var Icon$Q = function (props) {
@@ -2078,7 +2079,7 @@ var IconModule = /*#__PURE__*/Object.freeze({
     EggHouseIcon: Icon$15
 });
 
-var StyledLink$1 = styled__default['default'](reactRouterDom.Link)(templateObject_1$x || (templateObject_1$x = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n  .mobile-icon {\n    width: 32px;\n    ", " {\n      display: none;\n    }\n  }\n  .desktop-icon {\n    width: 156px;\n    display: none;\n    ", " {\n      display: block;\n    }\n  }\n"], ["\n  display: flex;\n  align-items: center;\n  .mobile-icon {\n    width: 32px;\n    ", " {\n      display: none;\n    }\n  }\n  .desktop-icon {\n    width: 156px;\n    display: none;\n    ", " {\n      display: block;\n    }\n  }\n"])), function (_a) {
+var StyledLink$1 = styled__default['default'](reactRouterDom.Link)(templateObject_1$x || (templateObject_1$x = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n  margin-right:20px;\n  .mobile-icon {\n    width: 32px;\n    ", " {\n      display: none;\n    }\n  }\n  .desktop-icon {\n    width: 156px;\n    display: none;\n    ", " {\n      display: block;\n    }\n  }\n"], ["\n  display: flex;\n  align-items: center;\n  margin-right:20px;\n  .mobile-icon {\n    width: 32px;\n    ", " {\n      display: none;\n    }\n  }\n  .desktop-icon {\n    width: 156px;\n    display: none;\n    ", " {\n      display: block;\n    }\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.mediaQueries.nav;
 }, function (_a) {
@@ -2089,7 +2090,6 @@ var Logo$1 = function (_a) {
     _a.isPushed; _a.togglePush; var isDark = _a.isDark, href = _a.href;
     var isAbsoluteUrl = href.startsWith("http");
     var innerLogo = (React__default['default'].createElement(React__default['default'].Fragment, null,
-        React__default['default'].createElement(Icon$q, { className: "mobile-icon" }),
         React__default['default'].createElement(Logo, { className: "desktop-icon", isDark: isDark })));
     return (React__default['default'].createElement(Flex, null, isAbsoluteUrl ? (React__default['default'].createElement(StyledLink$1, { as: "a", href: href, "aria-label": "Defix home page" }, innerLogo)) : (React__default['default'].createElement(StyledLink$1, { to: href, "aria-label": "Defix home page" }, innerLogo))));
 };
@@ -2293,23 +2293,9 @@ var UserBlock = function (_a) {
 
 var links = [
     {
-        label: "Home",
-        icon: "HomeIcon",
-        href: "/",
-    },
-    {
-        label: "Trade",
-        icon: "TradeIcon",
-        items: [
-            {
-                label: "Exchange",
-                href: "https://dex.defi.finance/",
-            },
-            {
-                label: "Liquidity",
-                href: "https://dex.defi.finance/#/pool",
-            },
-        ],
+        label: "Swap",
+        icon: "FarmIcon",
+        href: "https://dex.defi.finance/",
     },
     {
         label: "Farms",
@@ -2317,19 +2303,9 @@ var links = [
         href: "/farms",
     },
     {
-        label: "Pools",
-        icon: "PoolIcon",
-        href: "/syrup",
-    },
-    {
-        label: "Info",
-        icon: "InfoIcon",
-        items: [
-            {
-                label: "Defix Token",
-                href: "https://bscscan.com/token/0x09aa3e8753dd63c8f11d04936951fdbd4fd01f8",
-            },
-        ],
+        label: "Stake",
+        icon: "FarmIcon",
+        href: "/stake",
     },
 ];
 var MENU_HEIGHT = 64;
@@ -2449,7 +2425,7 @@ var MenuLink = function (_a) {
 };
 
 var Icons = IconModule;
-var Container$3 = styled__default['default'].div(templateObject_1$D || (templateObject_1$D = __makeTemplateObject(["\n  display: flex;\n\n\n  height: 100%;\n"], ["\n  display: flex;\n\n\n  height: 100%;\n"])));
+var Container$3 = styled__default['default'].div(templateObject_1$D || (templateObject_1$D = __makeTemplateObject(["\n  display: flex;\n  justify: flex-start;\n  height: 100%;\n"], ["\n  display: flex;\n  justify: flex-start;\n  height: 100%;\n"])));
 var PanelBody = function (_a) {
     var isPushed = _a.isPushed, pushNav = _a.pushNav, isMobile = _a.isMobile, links = _a.links;
     var location = reactRouterDom.useLocation();
@@ -2464,19 +2440,24 @@ var PanelBody = function (_a) {
                 entry.items.map(function (item) { return (React__default['default'].createElement(MenuEntry, { key: item.href, secondary: true, isActive: item.href === location.pathname, onClick: handleClick },
                     React__default['default'].createElement(MenuLink, { href: item.href }, item.label))); })));
         }
-        // return (
-        //   <MenuEntry key={entry.label} isActive={entry.href === location.pathname} className={calloutClass}>
-        //     <MenuLink href={entry.href} onClick={handleClick}>
-        //       {iconElement}
-        //       <LinkLabel isPushed={isPushed}>{entry.label}</LinkLabel>
-        //     </MenuLink>
-        //   </MenuEntry>
-        // );
+        return (React__default['default'].createElement(MenuEntry, { key: entry.label, isActive: entry.href === location.pathname, className: calloutClass },
+            React__default['default'].createElement(MenuLink, { href: entry.href, onClick: handleClick },
+                React__default['default'].createElement(LinkLabel, { isPushed: isPushed }, entry.label))));
     })));
 };
 var templateObject_1$D;
 
-var Wrapper$1 = styled__default['default'].div(templateObject_1$E || (templateObject_1$E = __makeTemplateObject(["\n  position: relative;\n  width: 100%;\n"], ["\n  position: relative;\n  width: 100%;\n"])));
+var MenuButton = styled__default['default'](Button)(templateObject_1$E || (templateObject_1$E = __makeTemplateObject(["\n  color: ", ";\n  padding: 0 8px;\n  border-radius: 8px;\n"], ["\n  color: ", ";\n  padding: 0 8px;\n  border-radius: 8px;\n"])), function (_a) {
+    var theme = _a.theme;
+    return theme.colors.text;
+});
+MenuButton.defaultProps = {
+    variant: "text",
+    size: "sm",
+};
+var templateObject_1$E;
+
+var Wrapper$1 = styled__default['default'].div(templateObject_1$F || (templateObject_1$F = __makeTemplateObject(["\n  position: relative;\n  width: 100%;\n"], ["\n  position: relative;\n  width: 100%;\n"])));
 var StyledNav = styled__default['default'].nav(templateObject_2$e || (templateObject_2$e = __makeTemplateObject(["\n  position: fixed;\n  top: ", ";\n  left: 0;\n  transition: top 0.2s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-left: 8px;\n  padding-right: 16px;\n  width: 100%;\n  height: ", "px;\n  background-color: ", ";\n  border-bottom: solid 2px rgba(133, 133, 133, 0.1);\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n"], ["\n  position: fixed;\n  top: ", ";\n  left: 0;\n  transition: top 0.2s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-left: 8px;\n  padding-right: 16px;\n  width: 100%;\n  height: ", "px;\n  background-color: ", ";\n  border-bottom: solid 2px rgba(133, 133, 133, 0.1);\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n"])), function (_a) {
     var showMenu = _a.showMenu;
     return (showMenu ? 0 : "-" + MENU_HEIGHT + "px");
@@ -2485,17 +2466,22 @@ var StyledNav = styled__default['default'].nav(templateObject_2$e || (templateOb
     return theme.nav.background;
 });
 var BodyWrapper = styled__default['default'].div(templateObject_3$7 || (templateObject_3$7 = __makeTemplateObject(["\n  position: relative;\n  display: flex;\n"], ["\n  position: relative;\n  display: flex;\n"])));
-var Inner = styled__default['default'].div(templateObject_4$2 || (templateObject_4$2 = __makeTemplateObject(["\n  flex-grow: 1;\n  margin-top: ", ";\n  transition: margin-top 0.2s;\n  transform: translate3d(0, 0, 0);\n\n"], ["\n  flex-grow: 1;\n  margin-top: ", ";\n  transition: margin-top 0.2s;\n  transform: translate3d(0, 0, 0);\n\n"])), function (_a) {
+var ConnectContainer = styled__default['default'].div(templateObject_4$2 || (templateObject_4$2 = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n"], ["\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n"])));
+var Inner = styled__default['default'].div(templateObject_5$1 || (templateObject_5$1 = __makeTemplateObject(["\n  flex-grow: 1;\n  margin-top: ", ";\n  transition: margin-top 0.2s;\n  transform: translate3d(0, 0, 0);\n"], ["\n  flex-grow: 1;\n  margin-top: ", ";\n  transition: margin-top 0.2s;\n  transform: translate3d(0, 0, 0);\n"])), function (_a) {
     var showMenu = _a.showMenu;
     return (showMenu ? MENU_HEIGHT + "px" : 0);
 });
-var MobileOnlyOverlay = styled__default['default'](Overlay)(templateObject_5$1 || (templateObject_5$1 = __makeTemplateObject(["\n  position: fixed;\n  height: 100%;\n\n  ", " {\n    display: none;\n  }\n"], ["\n  position: fixed;\n  height: 100%;\n\n  ", " {\n    display: none;\n  }\n"])), function (_a) {
+var MobileOnlyOverlay = styled__default['default'](Overlay)(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n  position: fixed;\n  height: 100%;\n\n  ", " {\n    display: none;\n  }\n"], ["\n  position: fixed;\n  height: 100%;\n\n  ", " {\n    display: none;\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.mediaQueries.nav;
 });
+styled__default['default'].div(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 0 16px;\n"], ["\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 0 16px;\n"])));
+styled__default['default'].a(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n  svg {\n    transition: transform 0.3s;\n  }\n  :hover {\n    svg {\n      transform: scale(1.2);\n    }\n  }\n"], ["\n  display: flex;\n  align-items: center;\n  svg {\n    transition: transform 0.3s;\n  }\n  :hover {\n    svg {\n      transform: scale(1.2);\n    }\n  }\n"])));
 var Menu = function (_a) {
     var _b;
     var account = _a.account, login = _a.login, logout = _a.logout, isDark = _a.isDark, toggleTheme = _a.toggleTheme, langs = _a.langs, setLang = _a.setLang, currentLang = _a.currentLang, cakePriceUsd = _a.cakePriceUsd, links = _a.links, priceLink = _a.priceLink, profile = _a.profile, children = _a.children;
+    var Icons = IconModule;
+    var MoonIcon = Icons.MoonIcon, SunIcon = Icons.SunIcon; Icons.LanguageIcon;
     var isXl = useMatchBreakpoints().isXl;
     var isMobile = isXl === false;
     var _c = React.useState(false), isPushed = _c[0], setIsPushed = _c[1];
@@ -2533,16 +2519,28 @@ var Menu = function (_a) {
     var homeLink = links.find(function (link) { return link.label === "Home"; });
     return (React__default['default'].createElement(Wrapper$1, null,
         React__default['default'].createElement(StyledNav, { showMenu: showMenu },
-            React__default['default'].createElement(Logo$1, { isPushed: isPushed, togglePush: function () { return setIsPushed(function (prevState) { return !prevState; }); }, isDark: isDark, href: (_b = homeLink === null || homeLink === void 0 ? void 0 : homeLink.href) !== null && _b !== void 0 ? _b : "/" }),
-            React__default['default'].createElement(Flex, null,
-                React__default['default'].createElement(PanelBody, { isPushed: true, isMobile: isMobile, isDark: isDark, toggleTheme: toggleTheme, langs: langs, setLang: setLang, currentLang: currentLang, cakePriceUsd: cakePriceUsd, pushNav: setIsPushed, links: links, priceLink: priceLink })),
-            React__default['default'].createElement(UserBlock, { account: account, login: login, logout: logout }),
-            profile && React__default['default'].createElement(Avatar, { profile: profile })),
+            React__default['default'].createElement(ConnectContainer, null,
+                React__default['default'].createElement(Logo$1, { isPushed: isPushed, togglePush: function () { return setIsPushed(function (prevState) { return !prevState; }); }, isDark: isDark, href: (_b = homeLink === null || homeLink === void 0 ? void 0 : homeLink.href) !== null && _b !== void 0 ? _b : "/" }),
+                React__default['default'].createElement(Flex, null,
+                    React__default['default'].createElement(PanelBody, { isPushed: true, isMobile: isMobile, isDark: isDark, toggleTheme: toggleTheme, langs: langs, setLang: setLang, currentLang: currentLang, cakePriceUsd: cakePriceUsd, pushNav: setIsPushed, links: links, priceLink: priceLink }))),
+            React__default['default'].createElement(ConnectContainer, null,
+                React__default['default'].createElement(Text, { color: "textSubtle", bold: true }, "$" + (cakePriceUsd ? cakePriceUsd.toFixed(3) : 0)),
+                React__default['default'].createElement(Button, { variant: "text", onClick: function () { return toggleTheme(!isDark); } },
+                    React__default['default'].createElement(Flex, { alignItems: "center" },
+                        React__default['default'].createElement(SunIcon, { color: isDark ? "textDisabled" : "text", width: "24px" }),
+                        React__default['default'].createElement(Text, { color: "textDisabled", mx: "4px" }, "/"),
+                        React__default['default'].createElement(MoonIcon, { color: isDark ? "text" : "textDisabled", width: "24px" }))),
+                React__default['default'].createElement(UserBlock, { account: account, login: login, logout: logout }),
+                profile && React__default['default'].createElement(Avatar, { profile: profile }),
+                React__default['default'].createElement(Dropdown, { position: "top-right", target: React__default['default'].createElement(Button, { variant: "text" },
+                        React__default['default'].createElement(Text, { color: "textSubtle" }, currentLang === null || currentLang === void 0 ? void 0 : currentLang.toUpperCase())) }, langs.map(function (lang) { return (React__default['default'].createElement(MenuButton, { key: lang.code, fullWidth: true, onClick: function () { return setLang(lang); }, 
+                    // Safari fix
+                    style: { minHeight: "32px", height: "auto" } }, lang.language)); })))),
         React__default['default'].createElement(BodyWrapper, null,
             React__default['default'].createElement(Inner, { isPushed: isPushed, showMenu: showMenu }, children),
             React__default['default'].createElement(MobileOnlyOverlay, { show: isPushed, onClick: function () { return setIsPushed(false); }, role: "presentation" }))));
 };
-var templateObject_1$E, templateObject_2$e, templateObject_3$7, templateObject_4$2, templateObject_5$1;
+var templateObject_1$F, templateObject_2$e, templateObject_3$7, templateObject_4$2, templateObject_5$1, templateObject_6, templateObject_7, templateObject_8;
 
 var ToastAction = function (_a) {
     var action = _a.action;
@@ -2566,7 +2564,7 @@ var alertTypeMap = (_a$1 = {},
     _a$1[types.DANGER] = variants$1.DANGER,
     _a$1[types.WARNING] = variants$1.WARNING,
     _a$1);
-var StyledToast = styled__default['default'].div(templateObject_1$F || (templateObject_1$F = __makeTemplateObject(["\n  right: 16px;\n  position: fixed;\n  max-width: calc(100% - 32px);\n  transition: all 250ms ease-in;\n  width: 100%;\n\n  ", " {\n    max-width: 400px;\n  }\n"], ["\n  right: 16px;\n  position: fixed;\n  max-width: calc(100% - 32px);\n  transition: all 250ms ease-in;\n  width: 100%;\n\n  ", " {\n    max-width: 400px;\n  }\n"])), function (_a) {
+var StyledToast = styled__default['default'].div(templateObject_1$G || (templateObject_1$G = __makeTemplateObject(["\n  right: 16px;\n  position: fixed;\n  max-width: calc(100% - 32px);\n  transition: all 250ms ease-in;\n  width: 100%;\n\n  ", " {\n    max-width: 400px;\n  }\n"], ["\n  right: 16px;\n  position: fixed;\n  max-width: calc(100% - 32px);\n  transition: all 250ms ease-in;\n  width: 100%;\n\n  ", " {\n    max-width: 400px;\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.mediaQueries.sm;
 });
@@ -2605,11 +2603,11 @@ var Toast = function (_a) {
                 React__default['default'].createElement(Text, { as: "p", mb: "8px" }, description),
                 React__default['default'].createElement(ToastAction, { action: action }))) : (description)))));
 };
-var templateObject_1$F;
+var templateObject_1$G;
 
 var ZINDEX = 1000;
 var TOP_POSITION = 80; // Initial position from the top
-var StyledToastContainer = styled__default['default'].div(templateObject_1$G || (templateObject_1$G = __makeTemplateObject(["\n  .enter,\n  .appear {\n    opacity: 0.01;\n  }\n\n  .enter.enter-active,\n  .appear.appear-active {\n    opacity: 1;\n    transition: opacity 250ms ease-in;\n  }\n\n  .exit {\n    opacity: 1;\n  }\n\n  .exit.exit-active {\n    opacity: 0.01;\n    transition: opacity 250ms ease-out;\n  }\n"], ["\n  .enter,\n  .appear {\n    opacity: 0.01;\n  }\n\n  .enter.enter-active,\n  .appear.appear-active {\n    opacity: 1;\n    transition: opacity 250ms ease-in;\n  }\n\n  .exit {\n    opacity: 1;\n  }\n\n  .exit.exit-active {\n    opacity: 0.01;\n    transition: opacity 250ms ease-out;\n  }\n"])));
+var StyledToastContainer = styled__default['default'].div(templateObject_1$H || (templateObject_1$H = __makeTemplateObject(["\n  .enter,\n  .appear {\n    opacity: 0.01;\n  }\n\n  .enter.enter-active,\n  .appear.appear-active {\n    opacity: 1;\n    transition: opacity 250ms ease-in;\n  }\n\n  .exit {\n    opacity: 1;\n  }\n\n  .exit.exit-active {\n    opacity: 0.01;\n    transition: opacity 250ms ease-out;\n  }\n"], ["\n  .enter,\n  .appear {\n    opacity: 0.01;\n  }\n\n  .enter.enter-active,\n  .appear.appear-active {\n    opacity: 1;\n    transition: opacity 250ms ease-in;\n  }\n\n  .exit {\n    opacity: 1;\n  }\n\n  .exit.exit-active {\n    opacity: 0.01;\n    transition: opacity 250ms ease-out;\n  }\n"])));
 var ToastContainer = function (_a) {
     var toasts = _a.toasts, onRemove = _a.onRemove, _b = _a.ttl, ttl = _b === void 0 ? 6000 : _b, _c = _a.stackSpacing, stackSpacing = _c === void 0 ? 24 : _c;
     return (React__default['default'].createElement(StyledToastContainer, null,
@@ -2619,16 +2617,16 @@ var ToastContainer = function (_a) {
             return (React__default['default'].createElement(Toast, { key: toast.id, toast: toast, onRemove: onRemove, ttl: ttl, style: { top: top + "px", zIndex: zIndex } }));
         }))));
 };
-var templateObject_1$G;
+var templateObject_1$H;
 
-var ResetCSS = styled.createGlobalStyle(templateObject_1$H || (templateObject_1$H = __makeTemplateObject(["\n  /* prettier-ignore */\n  html, body, div, span, applet, object, iframe,\n  h1, h2, h3, h4, h5, h6, p, blockquote, pre,\n  a, abbr, acronym, address, big, cite, code,\n  del, dfn, em, img, ins, kbd, q, s, samp,\n  small, strike, strong, sub, sup, tt, var,\n  b, u, i, center,\n  dl, dt, dd, ol, ul, li,\n  fieldset, form, label, legend,\n  table, caption, tbody, tfoot, thead, tr, th, td,\n  article, aside, canvas, details, embed, \n  figure, figcaption, footer, header, hgroup, \n  menu, nav, output, ruby, section, summary,\n  time, mark, audio, video {\n    margin: 0;\n    padding: 0;\n    border: 0;\n    font-size: 100%;\n    vertical-align: baseline;\n  }\n  /* HTML5 display-role reset for older browsers */\n  /* prettier-ignore */\n  article, aside, details, figcaption, figure, \n  footer, header, hgroup, menu, nav, section {\n    display: block;\n  }\n  body {\n    line-height: 1;\n    font-size: 16px;\n  }\n  ol,\n  ul {\n    list-style: disc;\n    list-style-position: inside;\n  }\n  blockquote,\n  q {\n    quotes: none;\n  }\n  blockquote:before,\n  blockquote:after,\n  q:before,\n  q:after {\n    content: \"\";\n    content: none;\n  }\n  table {\n    border-collapse: collapse;\n    border-spacing: 0;\n  }\n  a {\n    color: inherit;\n    text-decoration: none;\n  }\n  [role=\"button\"] {\n    cursor: pointer;\n  }\n  *,\n  *::before,\n  *::after {\n    box-sizing: border-box;\n  }\n  * {\n    font-family: 'Kanit', sans-serif;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n  /* Scrollbar */\n  ::-webkit-scrollbar {\n    width: 8px;\n  }\n  ::-webkit-scrollbar-thumb {\n    background: ", "; \n    border-radius: 8px;\n  }\n  ::-webkit-scrollbar-track {\n    box-shadow: inset 0 0 5px ", "; \n    border-radius: 10px;\n  }\n"], ["\n  /* prettier-ignore */\n  html, body, div, span, applet, object, iframe,\n  h1, h2, h3, h4, h5, h6, p, blockquote, pre,\n  a, abbr, acronym, address, big, cite, code,\n  del, dfn, em, img, ins, kbd, q, s, samp,\n  small, strike, strong, sub, sup, tt, var,\n  b, u, i, center,\n  dl, dt, dd, ol, ul, li,\n  fieldset, form, label, legend,\n  table, caption, tbody, tfoot, thead, tr, th, td,\n  article, aside, canvas, details, embed, \n  figure, figcaption, footer, header, hgroup, \n  menu, nav, output, ruby, section, summary,\n  time, mark, audio, video {\n    margin: 0;\n    padding: 0;\n    border: 0;\n    font-size: 100%;\n    vertical-align: baseline;\n  }\n  /* HTML5 display-role reset for older browsers */\n  /* prettier-ignore */\n  article, aside, details, figcaption, figure, \n  footer, header, hgroup, menu, nav, section {\n    display: block;\n  }\n  body {\n    line-height: 1;\n    font-size: 16px;\n  }\n  ol,\n  ul {\n    list-style: disc;\n    list-style-position: inside;\n  }\n  blockquote,\n  q {\n    quotes: none;\n  }\n  blockquote:before,\n  blockquote:after,\n  q:before,\n  q:after {\n    content: \"\";\n    content: none;\n  }\n  table {\n    border-collapse: collapse;\n    border-spacing: 0;\n  }\n  a {\n    color: inherit;\n    text-decoration: none;\n  }\n  [role=\"button\"] {\n    cursor: pointer;\n  }\n  *,\n  *::before,\n  *::after {\n    box-sizing: border-box;\n  }\n  * {\n    font-family: 'Kanit', sans-serif;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n  /* Scrollbar */\n  ::-webkit-scrollbar {\n    width: 8px;\n  }\n  ::-webkit-scrollbar-thumb {\n    background: ", "; \n    border-radius: 8px;\n  }\n  ::-webkit-scrollbar-track {\n    box-shadow: inset 0 0 5px ", "; \n    border-radius: 10px;\n  }\n"])), function (_a) {
+var ResetCSS = styled.createGlobalStyle(templateObject_1$I || (templateObject_1$I = __makeTemplateObject(["\n  /* prettier-ignore */\n  html, body, div, span, applet, object, iframe,\n  h1, h2, h3, h4, h5, h6, p, blockquote, pre,\n  a, abbr, acronym, address, big, cite, code,\n  del, dfn, em, img, ins, kbd, q, s, samp,\n  small, strike, strong, sub, sup, tt, var,\n  b, u, i, center,\n  dl, dt, dd, ol, ul, li,\n  fieldset, form, label, legend,\n  table, caption, tbody, tfoot, thead, tr, th, td,\n  article, aside, canvas, details, embed, \n  figure, figcaption, footer, header, hgroup, \n  menu, nav, output, ruby, section, summary,\n  time, mark, audio, video {\n    margin: 0;\n    padding: 0;\n    border: 0;\n    font-size: 100%;\n    vertical-align: baseline;\n  }\n  /* HTML5 display-role reset for older browsers */\n  /* prettier-ignore */\n  article, aside, details, figcaption, figure, \n  footer, header, hgroup, menu, nav, section {\n    display: block;\n  }\n  body {\n    line-height: 1;\n    font-size: 16px;\n  }\n  ol,\n  ul {\n    list-style: disc;\n    list-style-position: inside;\n  }\n  blockquote,\n  q {\n    quotes: none;\n  }\n  blockquote:before,\n  blockquote:after,\n  q:before,\n  q:after {\n    content: \"\";\n    content: none;\n  }\n  table {\n    border-collapse: collapse;\n    border-spacing: 0;\n  }\n  a {\n    color: inherit;\n    text-decoration: none;\n  }\n  [role=\"button\"] {\n    cursor: pointer;\n  }\n  *,\n  *::before,\n  *::after {\n    box-sizing: border-box;\n  }\n  * {\n    font-family: 'Kanit', sans-serif;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n  /* Scrollbar */\n  ::-webkit-scrollbar {\n    width: 8px;\n  }\n  ::-webkit-scrollbar-thumb {\n    background: ", "; \n    border-radius: 8px;\n  }\n  ::-webkit-scrollbar-track {\n    box-shadow: inset 0 0 5px ", "; \n    border-radius: 10px;\n  }\n"], ["\n  /* prettier-ignore */\n  html, body, div, span, applet, object, iframe,\n  h1, h2, h3, h4, h5, h6, p, blockquote, pre,\n  a, abbr, acronym, address, big, cite, code,\n  del, dfn, em, img, ins, kbd, q, s, samp,\n  small, strike, strong, sub, sup, tt, var,\n  b, u, i, center,\n  dl, dt, dd, ol, ul, li,\n  fieldset, form, label, legend,\n  table, caption, tbody, tfoot, thead, tr, th, td,\n  article, aside, canvas, details, embed, \n  figure, figcaption, footer, header, hgroup, \n  menu, nav, output, ruby, section, summary,\n  time, mark, audio, video {\n    margin: 0;\n    padding: 0;\n    border: 0;\n    font-size: 100%;\n    vertical-align: baseline;\n  }\n  /* HTML5 display-role reset for older browsers */\n  /* prettier-ignore */\n  article, aside, details, figcaption, figure, \n  footer, header, hgroup, menu, nav, section {\n    display: block;\n  }\n  body {\n    line-height: 1;\n    font-size: 16px;\n  }\n  ol,\n  ul {\n    list-style: disc;\n    list-style-position: inside;\n  }\n  blockquote,\n  q {\n    quotes: none;\n  }\n  blockquote:before,\n  blockquote:after,\n  q:before,\n  q:after {\n    content: \"\";\n    content: none;\n  }\n  table {\n    border-collapse: collapse;\n    border-spacing: 0;\n  }\n  a {\n    color: inherit;\n    text-decoration: none;\n  }\n  [role=\"button\"] {\n    cursor: pointer;\n  }\n  *,\n  *::before,\n  *::after {\n    box-sizing: border-box;\n  }\n  * {\n    font-family: 'Kanit', sans-serif;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n  /* Scrollbar */\n  ::-webkit-scrollbar {\n    width: 8px;\n  }\n  ::-webkit-scrollbar-thumb {\n    background: ", "; \n    border-radius: 8px;\n  }\n  ::-webkit-scrollbar-track {\n    box-shadow: inset 0 0 5px ", "; \n    border-radius: 10px;\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.colors.textSubtle;
 }, function (_a) {
     var theme = _a.theme;
     return theme.colors.input;
 });
-var templateObject_1$H;
+var templateObject_1$I;
 
 var baseColors = {
     failure: "#dc2625",
@@ -2645,7 +2643,7 @@ var brandColors = {
 var lightColors = __assign(__assign(__assign({}, baseColors), brandColors), { background: "#FAF9FA", backgroundDisabled: "#E9EAEB", contrast: "#000000", invertedContrast: "#FFFFFF", input: "#eeeaf4", tertiary: "#EFF4F5", text: "#5E7FA3", textDisabled: "#BDC2C4", textSubtle: "#5E7FA3", borderColor: "#262948", card: "#FFFFFF", gradients: {
         bubblegum: "linear-gradient(139.73deg, #E6FDFF 0%, #F3EFFF 100%)",
     } });
-var darkColors = __assign(__assign(__assign({}, baseColors), brandColors), { secondary: "#2a4cca", background: "#100C18", backgroundDisabled: "#1f1f1f", contrast: "#FFFFFF", invertedContrast: "#191326", input: "#1b1d31", primaryDark: "#0098A1", tertiary: "#353547", text: "#e7e8ea", textDisabled: "#666171", textSubtle: "#a8a9ad", borderColor: "#262948", card: "#1b1d31", gradients: {
+var darkColors = __assign(__assign(__assign({}, baseColors), brandColors), { secondary: "#2a4cca", background: "#171727", backgroundDisabled: "#1f1f1f", contrast: "#FFFFFF", invertedContrast: "#191326", input: "#1b1d31", primaryDark: "#0098A1", tertiary: "#353547", text: "#e7e8ea", textDisabled: "#666171", textSubtle: "#a8a9ad", borderColor: "#262948", card: "#1b1d31", gradients: {
         bubblegum: "linear-gradient(139.73deg, #313D5C 0%, #3D2A54 100%)",
     } });
 
