@@ -5,12 +5,21 @@ import Overlay from "../../components/Overlay/Overlay";
 import { Flex } from "../../components/Flex";
 import { useMatchBreakpoints } from "../../hooks";
 import Logo from "./Logo";
+import { PancakeRoundIcon, SvgProps } from "../../components/Svg";
+import Skeleton from "../../components/Skeleton/Skeleton";
 import Panel from "./Panel";
 import UserBlock from "./UserBlock";
 import { NavProps } from "./types";
 import { MENU_HEIGHT, SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "./config";
 import Avatar from "./Avatar";
 import PanelBody from "./PanelBody";
+import Button from "../../components/Button/Button";
+import * as IconModule from "./icons";
+import Text from "../../components/Text/Text";
+import Dropdown from "../../components/Dropdown/Dropdown";
+import MenuButton from "./MenuButton";
+import Link from "../../components/Link/Link";
+import { socials, MENU_ENTRY_HEIGHT } from "./config";
 const Wrapper = styled.div`
   position: relative;
   width: 100%;
@@ -39,12 +48,17 @@ const BodyWrapper = styled.div`
   display: flex;
 `;
 
+const ConnectContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
 const Inner = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   flex-grow: 1;
   margin-top: ${({ showMenu }) => (showMenu ? `${MENU_HEIGHT}px` : 0)};
   transition: margin-top 0.2s;
   transform: translate3d(0, 0, 0);
-
 `;
 
 const MobileOnlyOverlay = styled(Overlay)`
@@ -53,6 +67,26 @@ const MobileOnlyOverlay = styled(Overlay)`
 
   ${({ theme }) => theme.mediaQueries.nav} {
     display: none;
+  }
+`;
+
+const SocialEntry = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+`;
+
+const PriceLink = styled.a`
+  display: flex;
+  align-items: center;
+  svg {
+    transition: transform 0.3s;
+  }
+  :hover {
+    svg {
+      transform: scale(1.2);
+    }
   }
 `;
 
@@ -71,6 +105,8 @@ const Menu: React.FC<NavProps> = ({
   profile,
   children,
 }) => {
+  const Icons = (IconModule as unknown) as { [key: string]: React.FC<SvgProps> };
+  const { MoonIcon, SunIcon, LanguageIcon } = Icons;
   const { isXl } = useMatchBreakpoints();
   const isMobile = isXl === false;
   const [isPushed, setIsPushed] = useState(false);
@@ -112,31 +148,69 @@ const Menu: React.FC<NavProps> = ({
   return (
     <Wrapper>
       <StyledNav showMenu={showMenu}>
-        <Logo
-          isPushed={isPushed}
-          togglePush={() => setIsPushed((prevState: boolean) => !prevState)}
-          isDark={isDark}
-          href={homeLink?.href ?? "/"}
-        />
-        <Flex>
-        <PanelBody 
-            isPushed={true}
-            isMobile={isMobile}
+        <ConnectContainer>
+          <Logo
+            isPushed={isPushed}
+            togglePush={() => setIsPushed((prevState: boolean) => !prevState)}
             isDark={isDark}
-            toggleTheme={toggleTheme}
-            langs={langs}
-            setLang={setLang}
-            currentLang={currentLang}
-            cakePriceUsd={cakePriceUsd}
-            pushNav={setIsPushed}
-            links={links}
-            priceLink={priceLink}
-         />
+            href={homeLink?.href ?? "/"}
+          />
+          <Flex>
+            <PanelBody
+              isPushed={true}
+              isMobile={isMobile}
+              isDark={isDark}
+              toggleTheme={toggleTheme}
+              langs={langs}
+              setLang={setLang}
+              currentLang={currentLang}
+              cakePriceUsd={cakePriceUsd}
+              pushNav={setIsPushed}
+              links={links}
+              priceLink={priceLink}
+            />
+          </Flex>
+        </ConnectContainer>
+        <ConnectContainer>
+          <Text color="textSubtle" bold>{`$${cakePriceUsd ? cakePriceUsd.toFixed(3) : 0}`}</Text>
 
-        </Flex>
-        <UserBlock account={account} login={login} logout={logout} />
+          <Button variant="text" onClick={() => toggleTheme(!isDark)}>
+            {/* alignItems center is a Safari fix */}
+            <Flex alignItems="center">
+              <SunIcon color={isDark ? "textDisabled" : "text"} width="24px" />
+              <Text color="textDisabled" mx="4px">
+                /
+              </Text>
+              <MoonIcon color={isDark ? "text" : "textDisabled"} width="24px" />
+            </Flex>
+          </Button>
+
+          <UserBlock account={account} login={login} logout={logout} />
           {profile && <Avatar profile={profile} />}
+
+          <Dropdown
+            position="top-right"
+            target={
+              <Button variant="text">
+                <Text color="textSubtle">{currentLang?.toUpperCase()}</Text>
+              </Button>
+            }
+          >
+            {langs.map((lang) => (
+              <MenuButton
+                key={lang.code}
+                fullWidth
+                onClick={() => setLang(lang)}
+                // Safari fix
+                style={{ minHeight: "32px", height: "auto" }}
+              >
+                {lang.language}
+              </MenuButton>
+            ))}
+          </Dropdown>
+        </ConnectContainer>
       </StyledNav>
+
       <BodyWrapper>
         {/* <Panel
           isPushed={isPushed}

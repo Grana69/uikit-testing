@@ -18,7 +18,6 @@
     "test": "jest",
     "release": "yarn build && np"
   },
- 
   "jest": {
     "setupFilesAfterEnv": [
       "<rootDir>/src/setupTests.js"

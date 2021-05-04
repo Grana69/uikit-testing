@@ -1,27 +1,13 @@
 export const links = [
+  // {
+  //   label: "Home",
+  //   icon: "HomeIcon",
+  //   href: "/",
+  // },
   {
-    label: "Home",
-    icon: "HomeIcon",
-    href: "/",
-  },
-  {
-    label: "Trade",
-    icon: "TradeIcon",
-    items: [
-      {
-        label: "Exchange",
-        href: "https://dex.defi.finance/",
-      },
-      {
-        label: "Liquidity",
-        href: "https://dex.defi.finance/#/pool",
-      },
-    ],
-  },
-  {
-    label: "Farms",
+    label: "Swap",
     icon: "FarmIcon",
-    href: "/farms",
+    href: "https://dex.defi.finance/",
   },
   {
     label: "Pools",
@@ -29,27 +15,33 @@ export const links = [
     href: "/syrup",
   },
   {
-    label: "Info",
-    icon: "InfoIcon",
-    items: [
-      {
-        label: "Defix Token",
-        href: "https://bscscan.com/token/0x09aa3e8753dd63c8f11d04936951fdbd4fd01f8",
-      },
-    ],
+    label: "Farms",
+    icon: "FarmIcon",
+    href: "/farms",
   },
+  {
+    label: "Staking",
+    icon: "FarmIcon",
+    href: "https://dex.defi.finance/#/pool",
+  },
+
+  // {
+  //   label: "Info",
+  //   icon: "InfoIcon",
+  //   items: [
+  //     {
+  //       label: "Defix Token",
+  //       href: "https://bscscan.com/token/0x09aa3e8753dd63c8f11d04936951fdbd4fd01f8",
+  //     },
+  //   ],
+  // },
 ];
 
 export const socials = [
   {
     label: "Telegram",
     icon: "TelegramIcon",
-    items: [
-      {
-        label: "English",
-        href: "https://t.me/woonkly",
-      },
-    ],
+    href: "https://t.me/woonkly",
   },
   {
     label: "Twitter",
