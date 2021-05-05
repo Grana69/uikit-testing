@@ -22,13 +22,29 @@ const Wrapper = styled.div`
   width: 100%;
 `;
 
+const Alert = styled.div`
+  position: absolute;
+  width: 100%;
+  background-color:red;
+  z-index: 99;
+  color:#FFFFFF;
+  text-align:center;
+  padding:3px;
+`;
+
+const SubNavContainer = styled.div`
+display: flex;
+justify-content: space-between;
+margin-top:10px;
+
+`;
+
 const StyledNav = styled.nav<{ showMenu: boolean }>`
   position: fixed;
   top: ${({ showMenu }) => (showMenu ? 0 : `-${MENU_HEIGHT}px`)};
   left: 0;
   transition: top 0.2s;
-  display: flex;
-  justify-content: space-between;
+
   align-items: center;
   padding-left: 8px;
   padding-right: 16px;
@@ -38,6 +54,7 @@ const StyledNav = styled.nav<{ showMenu: boolean }>`
   border-bottom: solid 2px rgba(133, 133, 133, 0.1);
   z-index: 20;
   transform: translate3d(0, 0, 0);
+  
 `;
 
 const BodyWrapper = styled.div`
@@ -144,8 +161,13 @@ const Menu: React.FC<NavProps> = ({
 
   return (
     <Wrapper>
+
       <StyledNav showMenu={showMenu}>
-        <ConnectContainer>
+      <Alert>
+          BETA VERSION. CONTRACTS BEEING AUDITED. USE AT YOUR OWN RISK.   
+      </Alert>
+      <SubNavContainer>
+      <ConnectContainer>
           <Logo
             isPushed={isPushed}
             togglePush={() => setIsPushed((prevState: boolean) => !prevState)}
@@ -179,9 +201,7 @@ const Menu: React.FC<NavProps> = ({
                 isDark ? <SunIcon color={isDark ? "textDisabled" : "text"} width="24px" />
                 :<MoonIcon color={isDark ? "text" : "textDisabled"} width="24px" />
               }
-              
-
-              
+                
             </Flex>
           </Button>
 
@@ -210,7 +230,9 @@ const Menu: React.FC<NavProps> = ({
               </MenuButton>
             ))}
           </Dropdown>
-        </ConnectContainer>
+        </ConnectContainer> 
+      </SubNavContainer>
+        
       </StyledNav>
 
       <BodyWrapper>
