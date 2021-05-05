@@ -169,32 +169,37 @@ const Menu: React.FC<NavProps> = ({
           </Flex>
         </ConnectContainer>
         <ConnectContainer>
-          <Text color="textSubtle" bold>{`$${cakePriceUsd ? cakePriceUsd.toFixed(3) : 0}`}</Text>
 
-          <Button variant="text" onClick={() => toggleTheme(!isDark)}>
+          <Text color="textSubtle" mx={1} bold>{`$${cakePriceUsd ? cakePriceUsd.toFixed(3) : 0}`}</Text>
+
+          <Button variant="text" mx={3} onClick={() => toggleTheme(!isDark)}>
             {/* alignItems center is a Safari fix */}
             <Flex alignItems="center">
-              <SunIcon color={isDark ? "textDisabled" : "text"} width="24px" />
-              <Text color="textDisabled" mx="4px">
-                /
-              </Text>
-              <MoonIcon color={isDark ? "text" : "textDisabled"} width="24px" />
+              {
+                isDark ? <SunIcon color={isDark ? "textDisabled" : "text"} width="24px" />
+                :<MoonIcon color={isDark ? "text" : "textDisabled"} width="24px" />
+              }
+              
+
+              
             </Flex>
           </Button>
 
-          <UserBlock account={account} login={login} logout={logout} />
+          <UserBlock  account={account} login={login} logout={logout} />
           {profile && <Avatar profile={profile} />}
 
           <Dropdown
+          
             position="top-right"
             target={
-              <Button variant="text">
+              <Button  mx={3} variant="text">
                 <Text color="textSubtle">{currentLang?.toUpperCase()}</Text>
               </Button>
             }
           >
             {langs.map((lang) => (
               <MenuButton
+               
                 key={lang.code}
                 fullWidth
                 onClick={() => setLang(lang)}
@@ -209,20 +214,7 @@ const Menu: React.FC<NavProps> = ({
       </StyledNav>
 
       <BodyWrapper>
-        {/* <Panel
-          isPushed={isPushed}
-          isMobile={isMobile}
-          showMenu={showMenu}
-          isDark={isDark}
-          toggleTheme={toggleTheme}
-          langs={langs}
-          setLang={setLang}
-          currentLang={currentLang}
-          cakePriceUsd={cakePriceUsd}
-          pushNav={setIsPushed}
-          links={links}
-          priceLink={priceLink}
-        /> */}
+
         <Inner isPushed={isPushed} showMenu={showMenu}>
           {children}
         </Inner>

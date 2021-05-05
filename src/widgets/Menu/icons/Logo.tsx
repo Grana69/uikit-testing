@@ -13,7 +13,10 @@ const Logo: React.FC<LogoProps> = ({ isDark, ...props }) => {
   return (
     <Svg viewBox="0 0 205 26" {...props}>
       <a href="">
-        <image width="205" height="26" href={isDark ? 'https://welcome.woonkly.com/images/defi/logo-dark.svg' : 'https://welcome.woonkly.com/images/defi/logo-light.svg'}/>
+        <image width="205" height="26" href={isDark ? 'https://welcome.woonkly.com/images/defi/logo-light.svg'
+          : 
+          'https://welcome.woonkly.com/images/defi/logo-dark.svg' 
+          }/>
       </a>
 
     </Svg>
