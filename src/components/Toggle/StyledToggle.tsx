@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Handle = styled.div`
   background-color: ${({ theme }) => theme.toggle.handleBackground};
   border-radius: 50%;
+  border: solid 1px #218CFF;
   cursor: pointer;
   height: 32px;
   left: 4px;
@@ -35,6 +36,7 @@ export const Input = styled.input`
 `;
 
 const StyledToggle = styled.div<{ checked: boolean }>`
+border: solid 1px #218CFF;
   align-items: center;
   background-color: ${({ theme, checked }) => theme.colors[checked ? "primary" : "input"]};
   border-radius: 24px;

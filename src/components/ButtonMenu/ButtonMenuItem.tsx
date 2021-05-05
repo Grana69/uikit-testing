@@ -36,7 +36,7 @@ const ButtonMenuItem: React.FC<ButtonMenuItemProps> = ({
     );
   }
 
-  return <Button as={as} size={size} variant={variant} {...props} />;
+  return <Button as={as} size={size} variant="primary" {...props} />;
 };
 
 export default ButtonMenuItem;
