@@ -16,7 +16,9 @@ interface Props {
 const StyledLink = styled(Link)`
   display: flex;
   align-items: center;
-  margin-right:20px;
+
+  margin-right: 40px;
+    margin-left: 40px;
   .mobile-icon {
     width: 32px;
     ${({ theme }) => theme.mediaQueries.nav} {
