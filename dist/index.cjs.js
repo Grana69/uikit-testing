@@ -6,10 +6,10 @@ var React = require('react');
 var styled = require('styled-components');
 var styledSystem = require('styled-system');
 var get = require('lodash/get');
+var reactRouterDom = require('react-router-dom');
 var noop = require('lodash/noop');
 var debounce = require('lodash/debounce');
 var throttle = require('lodash/throttle');
-var reactRouterDom = require('react-router-dom');
 var reactTransitionGroup = require('react-transition-group');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
@@ -354,9 +354,19 @@ var Icon$p = function (props) {
         React__default['default'].createElement("path", { d: "M4.5 14H6.5C7.05 14 7.5 13.55 7.5 13V11C7.5 10.45 7.05 10 6.5 10H4.5C3.95 10 3.5 10.45 3.5 11V13C3.5 13.55 3.95 14 4.5 14ZM4.5 19H6.5C7.05 19 7.5 18.55 7.5 18V16C7.5 15.45 7.05 15 6.5 15H4.5C3.95 15 3.5 15.45 3.5 16V18C3.5 18.55 3.95 19 4.5 19ZM4.5 9H6.5C7.05 9 7.5 8.55 7.5 8V6C7.5 5.45 7.05 5 6.5 5H4.5C3.95 5 3.5 5.45 3.5 6V8C3.5 8.55 3.95 9 4.5 9ZM9.5 14H19.5C20.05 14 20.5 13.55 20.5 13V11C20.5 10.45 20.05 10 19.5 10H9.5C8.95 10 8.5 10.45 8.5 11V13C8.5 13.55 8.95 14 9.5 14ZM9.5 19H19.5C20.05 19 20.5 18.55 20.5 18V16C20.5 15.45 20.05 15 19.5 15H9.5C8.95 15 8.5 15.45 8.5 16V18C8.5 18.55 8.95 19 9.5 19ZM8.5 6V8C8.5 8.55 8.95 9 9.5 9H19.5C20.05 9 20.5 8.55 20.5 8V6C20.5 5.45 20.05 5 19.5 5H9.5C8.95 5 8.5 5.45 8.5 6Z" })));
 };
 
+var MenuLink = function (_a) {
+    var href = _a.href, otherProps = __rest(_a, ["href"]);
+    var isHttpLink = href === null || href === void 0 ? void 0 : href.startsWith("http");
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    var Tag = isHttpLink ? "a" : reactRouterDom.NavLink;
+    var props = isHttpLink ? { href: href } : { to: href };
+    return React__default['default'].createElement(Tag, __assign({}, props, otherProps));
+};
+
 var Icon$q = function (props) {
-    return (React__default['default'].createElement(Svg, __assign({ viewBox: "0 0 32 32" }, props),
-        React__default['default'].createElement("image", { width: "32", height: "32", href: "https://welcome.woonkly.com/images/common/logo-responsive.svg" })));
+    return (React__default['default'].createElement(MenuLink, { href: "https://defi.finance/" },
+        React__default['default'].createElement(Svg, __assign({ viewBox: "0 0 32 32" }, props),
+            React__default['default'].createElement("image", { width: "32", height: "32", href: "https://welcome.woonkly.com/images/common/logo-responsive.svg" }))));
 };
 
 var Icon$r = function (props) {
@@ -1889,8 +1899,8 @@ var Icon$P = function (props) {
 
 var Logo = function (_a) {
     var isDark = _a.isDark, props = __rest(_a, ["isDark"]);
-    return (React__default['default'].createElement(Svg, __assign({ viewBox: "0 0 205 26" }, props),
-        React__default['default'].createElement("a", { href: "" },
+    return (React__default['default'].createElement(MenuLink, { href: "https://defi.finance/" },
+        React__default['default'].createElement(Svg, __assign({ viewBox: "0 0 205 26" }, props),
             React__default['default'].createElement("image", { width: "205", height: "26", href: isDark ? 'https://welcome.woonkly.com/images/defi/logo-light.svg'
                     :
                         'https://welcome.woonkly.com/images/defi/logo-dark.svg' }))));
@@ -2410,15 +2420,6 @@ var Accordion = function (_a) {
         React__default['default'].createElement(AccordionContent, { isOpen: isOpen, isPushed: isPushed, maxHeight: React__default['default'].Children.count(children) * MENU_ENTRY_HEIGHT }, children)));
 };
 var templateObject_1$C, templateObject_2$d;
-
-var MenuLink = function (_a) {
-    var href = _a.href, otherProps = __rest(_a, ["href"]);
-    var isHttpLink = href === null || href === void 0 ? void 0 : href.startsWith("http");
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    var Tag = isHttpLink ? "a" : reactRouterDom.NavLink;
-    var props = isHttpLink ? { href: href } : { to: href };
-    return React__default['default'].createElement(Tag, __assign({}, props, otherProps));
-};
 
 var Icons = IconModule;
 var Container$3 = styled__default['default'].div(templateObject_1$D || (templateObject_1$D = __makeTemplateObject(["\n  display: flex;\n  justify: flex-start;\n  height: 100%;\n"], ["\n  display: flex;\n  justify: flex-start;\n  height: 100%;\n"])));
