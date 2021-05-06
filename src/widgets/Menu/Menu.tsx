@@ -23,19 +23,20 @@ const Wrapper = styled.div`
 `;
 
 const Alert = styled.div`
-  position: absolute;
+  position: relative;
   width: 100%;
   background-color:red;
   z-index: 99;
   color:#FFFFFF;
   text-align:center;
   padding:3px;
+  font-size:13px;
 `;
 
 const SubNavContainer = styled.div`
 display: flex;
 justify-content: space-between;
-margin-top:18px;
+
 
 `;
 
@@ -49,7 +50,7 @@ const StyledNav = styled.nav<{ showMenu: boolean }>`
   padding-left: 8px;
   padding-right: 16px;
   width: 100%;
-  height: ${MENU_HEIGHT}px;
+  height: auto;
   background-color: ${({ theme }) => theme.nav.background};
   border-bottom: solid 2px rgba(133, 133, 133, 0.1);
   z-index: 20;
@@ -164,7 +165,7 @@ const Menu: React.FC<NavProps> = ({
 
       <StyledNav showMenu={showMenu}>
       <Alert>
-          BETA VERSION. CONTRACTS BEEING AUDITED. USE AT YOUR OWN RISK.   
+      BETA VERSION. CONTRACTS BEEING AUDITED. USE AT YOUR OWN RISK. FARMS AND STAKING WILL BE ACTIVE SOON. STAY TUNNED.BETA VERSION. CONTRACTS BEEING AUDITED. USE AT YOUR OWN RISK.
       </Alert>
       <SubNavContainer>
       <ConnectContainer>

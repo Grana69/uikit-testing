@@ -2442,12 +2442,12 @@ MenuButton.defaultProps = {
 var templateObject_1$E;
 
 var Wrapper$1 = styled.div(templateObject_1$F || (templateObject_1$F = __makeTemplateObject(["\n  position: relative;\n  width: 100%;\n"], ["\n  position: relative;\n  width: 100%;\n"])));
-var Alert$1 = styled.div(templateObject_2$e || (templateObject_2$e = __makeTemplateObject(["\n  position: absolute;\n  width: 100%;\n  background-color:red;\n  z-index: 99;\n  color:#FFFFFF;\n  text-align:center;\n  padding:3px;\n"], ["\n  position: absolute;\n  width: 100%;\n  background-color:red;\n  z-index: 99;\n  color:#FFFFFF;\n  text-align:center;\n  padding:3px;\n"])));
-var SubNavContainer = styled.div(templateObject_3$7 || (templateObject_3$7 = __makeTemplateObject(["\ndisplay: flex;\njustify-content: space-between;\nmargin-top:18px;\n\n"], ["\ndisplay: flex;\njustify-content: space-between;\nmargin-top:18px;\n\n"])));
-var StyledNav = styled.nav(templateObject_4$2 || (templateObject_4$2 = __makeTemplateObject(["\n  position: fixed;\n  top: ", ";\n  left: 0;\n  transition: top 0.2s;\n\n  align-items: center;\n  padding-left: 8px;\n  padding-right: 16px;\n  width: 100%;\n  height: ", "px;\n  background-color: ", ";\n  border-bottom: solid 2px rgba(133, 133, 133, 0.1);\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n  \n"], ["\n  position: fixed;\n  top: ", ";\n  left: 0;\n  transition: top 0.2s;\n\n  align-items: center;\n  padding-left: 8px;\n  padding-right: 16px;\n  width: 100%;\n  height: ", "px;\n  background-color: ", ";\n  border-bottom: solid 2px rgba(133, 133, 133, 0.1);\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n  \n"])), function (_a) {
+var Alert$1 = styled.div(templateObject_2$e || (templateObject_2$e = __makeTemplateObject(["\n  position: relative;\n  width: 100%;\n  background-color:red;\n  z-index: 99;\n  color:#FFFFFF;\n  text-align:center;\n  padding:3px;\n  font-size:13px;\n"], ["\n  position: relative;\n  width: 100%;\n  background-color:red;\n  z-index: 99;\n  color:#FFFFFF;\n  text-align:center;\n  padding:3px;\n  font-size:13px;\n"])));
+var SubNavContainer = styled.div(templateObject_3$7 || (templateObject_3$7 = __makeTemplateObject(["\ndisplay: flex;\njustify-content: space-between;\n\n\n"], ["\ndisplay: flex;\njustify-content: space-between;\n\n\n"])));
+var StyledNav = styled.nav(templateObject_4$2 || (templateObject_4$2 = __makeTemplateObject(["\n  position: fixed;\n  top: ", ";\n  left: 0;\n  transition: top 0.2s;\n\n  align-items: center;\n  padding-left: 8px;\n  padding-right: 16px;\n  width: 100%;\n  height: auto;\n  background-color: ", ";\n  border-bottom: solid 2px rgba(133, 133, 133, 0.1);\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n  \n"], ["\n  position: fixed;\n  top: ", ";\n  left: 0;\n  transition: top 0.2s;\n\n  align-items: center;\n  padding-left: 8px;\n  padding-right: 16px;\n  width: 100%;\n  height: auto;\n  background-color: ", ";\n  border-bottom: solid 2px rgba(133, 133, 133, 0.1);\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n  \n"])), function (_a) {
     var showMenu = _a.showMenu;
     return (showMenu ? 0 : "-" + MENU_HEIGHT + "px");
-}, MENU_HEIGHT, function (_a) {
+}, function (_a) {
     var theme = _a.theme;
     return theme.nav.background;
 });
@@ -2505,7 +2505,7 @@ var Menu = function (_a) {
     var homeLink = links.find(function (link) { return link.label === "Home"; });
     return (React.createElement(Wrapper$1, null,
         React.createElement(StyledNav, { showMenu: showMenu },
-            React.createElement(Alert$1, null, "BETA VERSION. CONTRACTS BEEING AUDITED. USE AT YOUR OWN RISK."),
+            React.createElement(Alert$1, null, "BETA VERSION. CONTRACTS BEEING AUDITED. USE AT YOUR OWN RISK. FARMS AND STAKING WILL BE ACTIVE SOON. STAY TUNNED.BETA VERSION. CONTRACTS BEEING AUDITED. USE AT YOUR OWN RISK."),
             React.createElement(SubNavContainer, null,
                 React.createElement(ConnectContainer, null,
                     React.createElement(Logo$1, { isPushed: isPushed, togglePush: function () { return setIsPushed(function (prevState) { return !prevState; }); }, isDark: isDark, href: (_b = homeLink === null || homeLink === void 0 ? void 0 : homeLink.href) !== null && _b !== void 0 ? _b : "/" }),
