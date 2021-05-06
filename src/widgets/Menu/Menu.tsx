@@ -47,8 +47,8 @@ const StyledNav = styled.nav<{ showMenu: boolean }>`
   transition: top 0.2s;
 
   align-items: center;
-  padding-left: 8px;
-  padding-right: 16px;
+
+
   width: 100%;
   height: auto;
   background-color: ${({ theme }) => theme.nav.background};
